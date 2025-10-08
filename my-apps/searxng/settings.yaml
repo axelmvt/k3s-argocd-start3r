@@ -6,7 +6,7 @@ server:
     bind_address: "0.0.0.0"
     port: 8080  # Match with deployment port
     public_instance: true
-    limiter: true  # Enable limiter
+    limiter: false  # Enable limiter
     method: "GET"  # Allow both GET and POST
     http_protocol_version: "1.0"
     default_http_headers:
@@ -16,6 +16,11 @@ server:
         Referrer-Policy: no-referrer
         Access-Control-Allow-Origin: "*"
         Access-Control-Allow-Methods: "GET, POST, OPTIONS"
+
+botdetection:
+  # disable the link_token mechanism that writes to redis
+  link_token:
+    method: null
 
 redis:
     url: redis://redis:6379
