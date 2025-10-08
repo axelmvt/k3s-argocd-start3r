@@ -5,9 +5,18 @@ metadata:
   namespace: searxng
 spec:
   parentRefs:
-    - name: gateway-external # Must match your Gateway's metadata.name
+    - name: gateway-external
       namespace: gateway
-      sectionName: https # Must match your Gateway's listeners[].name
+      sectionName: https
+    - name: gateway-external
+      namespace: gateway
+      sectionName: http
+    - name: gateway-internal
+      namespace: gateway
+      sectionName: https
+    - name: gateway-internal
+      namespace: gateway
+      sectionName: http
   hostnames:
     - "search.mvt.com.ar"
   rules:
