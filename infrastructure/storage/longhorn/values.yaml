@@ -19,11 +19,11 @@ defaultSettings:
   defaultDataLocality: "best-effort"
   # For 2 nodes: use 1 replica (no redundancy but works)
   # For 3+ nodes: use 2 replicas (redundancy with failure tolerance)
-  defaultClassReplicaCount: 1
+  #defaultClassReplicaCount: 1
   # Force formatting to fix device busy errors
   mkfsExt4Parameters: "-F"
   # Reduce resource usage for small clusters
-  guaranteedInstanceManagerCPU: 5 # Reduce from default 12%
+  guaranteedInstanceManagerCPU: "5" # Reduce from default 12%
   # Allow scheduling on nodes with existing workloads
   taintToleration: "node-role.kubernetes.io/control-plane:NoSchedule"
 
