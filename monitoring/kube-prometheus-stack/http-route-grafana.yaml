@@ -5,9 +5,12 @@ metadata:
   namespace: kube-prometheus-stack
 spec:
   parentRefs:
-  - name: gateway-internal # Must match your Gateway's metadata.name
-    namespace: gateway
-    sectionName: https # Must match your Gateway's listeners[].name
+    - name: gateway-internal
+      namespace: gateway
+      sectionName: https
+    - name: gateway-internal
+      namespace: gateway
+      sectionName: http
   hostnames:
   - "grafana.mvt.com.ar"
   rules:
