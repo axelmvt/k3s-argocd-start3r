@@ -16,7 +16,7 @@ spec:
       - exclude: true
         path: my-apps/myapplications-appset.yaml
       - exclude: true
-        path: my-apps/homarr
+        path: my-apps/homarr/*
   template:
     metadata:
       # Changed from 'app-{{path.basename}}' to just '{{path.basename}}'
