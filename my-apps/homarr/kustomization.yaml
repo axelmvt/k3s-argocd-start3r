@@ -11,6 +11,6 @@ resources:
 - service.yaml
 - httproute.yaml
 
-commonLabels:
+labels:
   app.kubernetes.io/name: homarr
   app.kubernetes.io/managed-by: argocd
