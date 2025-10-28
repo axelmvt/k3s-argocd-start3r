@@ -15,6 +15,20 @@ spec:
       labels:
         app: homeassistant
     spec:
+      initContainers:
+      - name: copy-config
+        image: busybox:1.35
+        command: ['sh', '-c']
+        args:
+        - |
+          echo "Copying configuration template..."
+          cp /config-templates/configuration.yaml /config/configuration.yaml
+          echo "Configuration copied successfully"
+        volumeMounts:
+        - name: homeassistant-data
+          mountPath: /config
+        - name: homeassistant-config
+          mountPath: /config-templates
       containers:
       - name: homeassistant
         image: homeassistant/home-assistant:latest
@@ -27,8 +41,7 @@ spec:
         - name: homeassistant-data
           mountPath: /config
         - name: homeassistant-config
-          mountPath: /config/configuration.yaml
-          subPath: configuration.yaml
+          mountPath: /config-templates
         resources:
           limits:
             cpu: 1000m
