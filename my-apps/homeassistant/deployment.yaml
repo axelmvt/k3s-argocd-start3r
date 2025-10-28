@@ -26,6 +26,9 @@ spec:
         volumeMounts:
         - name: homeassistant-data
           mountPath: /config
+        - name: homeassistant-config
+          mountPath: /config/configuration.yaml
+          subPath: configuration.yaml
         resources:
           limits:
             cpu: 1000m
@@ -39,3 +42,6 @@ spec:
       - name: homeassistant-data
         persistentVolumeClaim:
           claimName: homeassistant-data
+      - name: homeassistant-config
+        configMap:
+          name: homeassistant-config
