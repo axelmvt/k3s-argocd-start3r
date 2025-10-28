@@ -1,3 +1,39 @@
+# Secret files with real values - never commit these
+**/secret-real.yaml
+**/secrets-real.yaml
+**/*-secret-real.yaml
+**/*-secrets-real.yaml
+
+# Generated secret files
+scripts/*-secret-*.yaml
+scripts/*-secrets-*.yaml
+
+# Environment files with secrets
+.env
+.env.local
+.env.production
+.env.staging
+
+# Temporary files
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Log files
+*.log
+logs/
+
+# Backup files
+*.bak
+*.backup
+
 # Ignore all .DS_Store files anywhere in the repository
 **/.DS_Store
 .DS_Store
@@ -14,3 +50,5 @@ chatmodes/
 instructions/
 */chatmodes/
 */instructions/
+
+tunnel-creds.json
