@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homeassistant
+  namespace: homeassistant
+  labels:
+    app: homeassistant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: homeassistant
+  template:
+    metadata:
+      labels:
+        app: homeassistant
+    spec:
+      containers:
+      - name: homeassistant
+        image: homeassistant/home-assistant:latest
+        ports:
+        - containerPort: 8123
+        env:
+        - name: TZ
+          value: "UTC"
+        volumeMounts:
+        - name: homeassistant-data
+          mountPath: /config
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 1Gi
+          requests:
+            cpu: 500m
+            memory: 512Mi
+        securityContext:
+          privileged: true
+      volumes:
+      - name: homeassistant-data
+        persistentVolumeClaim:
+          claimName: homeassistant-data
