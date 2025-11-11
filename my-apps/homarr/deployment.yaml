@@ -29,8 +29,6 @@ spec:
         volumeMounts:
         - name: homarr-data
           mountPath: /appdata
-        - name: docker-sock
-          mountPath: /var/run/docker.sock
         resources:
           limits:
             cpu: 200m
@@ -42,7 +40,3 @@ spec:
       - name: homarr-data
         persistentVolumeClaim:
           claimName: homarr-data
-      - name: docker-sock
-        hostPath:
-          path: /var/run/docker.sock
-          type: Socket
