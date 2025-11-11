@@ -26,6 +26,8 @@ spec:
             secretKeyRef:
               name: homarr-secrets
               key: encryption-key
+        - name: PORT
+          value: "7575"
         volumeMounts:
         - name: homarr-data
           mountPath: /appdata
