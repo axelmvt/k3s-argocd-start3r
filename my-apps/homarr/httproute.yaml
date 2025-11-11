@@ -12,7 +12,7 @@ spec:
     namespace: gateway
     sectionName: http
   hostnames:
-  - "homarr.mvt.com.ar"
+  - "dash.mvt.com.ar"
   rules:
   - matches:
     - path:
