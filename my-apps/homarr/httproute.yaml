@@ -5,10 +5,14 @@ metadata:
   namespace: homarr
 spec:
   parentRefs:
-  - name: gateway-internal
+  - group: gateway.networking.k8s.io
+    kind: Gateway
+    name: gateway-internal
     namespace: gateway
     sectionName: https
-  - name: gateway-internal
+  - group: gateway.networking.k8s.io
+    kind: Gateway
+    name: gateway-internal
     namespace: gateway
     sectionName: http
   hostnames:
@@ -19,6 +23,9 @@ spec:
         type: PathPrefix
         value: /
     backendRefs:
-    - name: homarr
+    - group: ""
+      kind: Service
+      name: homarr
       port: 7575
+      weight: 1
 
