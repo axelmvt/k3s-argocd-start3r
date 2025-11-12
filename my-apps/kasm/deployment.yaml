@@ -37,12 +37,13 @@ spec:
             cpu: 1000m
             memory: 2Gi
         readinessProbe:
-          tcpSocket:
+          httpGet:
+            path: /api/__healthcheck
             port: 3000
-          initialDelaySeconds: 60
+          initialDelaySeconds: 120
           periodSeconds: 10
           timeoutSeconds: 5
-          failureThreshold: 6
+          failureThreshold: 12
         livenessProbe:
           tcpSocket:
             port: 3000
