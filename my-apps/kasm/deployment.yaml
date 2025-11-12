@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kasm
+  namespace: kasm
+  labels:
+    app: kasm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kasm
+  template:
+    metadata:
+      labels:
+        app: kasm
+    spec:
+      containers:
+      - name: kasm
+        image: lscr.io/linuxserver/kasm:latest
+        ports:
+        - containerPort: 443
+          name: https
+        - containerPort: 80
+          name: http
+        env:
+        - name: KASM_PORT
+          value: "443"
+        - name: TZ
+          value: "UTC"
+        volumeMounts:
+        - name: kasm-data
+          mountPath: /opt
+        - name: kasm-profiles
+          mountPath: /profiles
+        resources:
+          limits:
+            cpu: 2000m
+            memory: 4Gi
+          requests:
+            cpu: 1000m
+            memory: 2Gi
+        securityContext:
+          privileged: true
+      volumes:
+      - name: kasm-data
+        persistentVolumeClaim:
+          claimName: kasm-data
+      - name: kasm-profiles
+        emptyDir: {}
+
