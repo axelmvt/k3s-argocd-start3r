@@ -19,13 +19,9 @@ spec:
       - name: kasm
         image: lscr.io/linuxserver/kasm:latest
         ports:
-        - containerPort: 443
-          name: https
-        - containerPort: 80
+        - containerPort: 3000
           name: http
         env:
-        - name: KASM_PORT
-          value: "443"
         - name: TZ
           value: "UTC"
         volumeMounts:

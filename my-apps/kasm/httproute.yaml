@@ -36,6 +36,6 @@ spec:
     - group: ""
       kind: Service
       name: kasm
-      port: 80
+      port: 3000
       weight: 1
 
