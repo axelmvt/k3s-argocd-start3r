@@ -15,6 +15,10 @@ spec:
       - path: my-apps/*
       - exclude: true
         path: my-apps/myapplications-appset.yaml
+      - exclude: true
+        path: my-apps/homarr
+      - exclude: true
+        path: my-apps/homeassistant
   template:
     metadata:
       # Changed from 'app-{{path.basename}}' to just '{{path.basename}}'
